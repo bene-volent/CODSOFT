@@ -111,6 +111,48 @@ html {
   border-width: 0;
 }
 
+.section-heading {
+  margin-bottom: var(--size-4);
+  font-size: var(--size-7);
+  line-height: 1;
+}
+@media (width > 768px) {
+  .section-heading {
+    font-size: var(--size-9);
+    margin-bottom: var(--size-6);
+  }
+}
+@media (width > 1120px) {
+  .section-heading {
+    font-size: var(--size-12);
+  }
+}
+
+section .wrapper {
+  padding-block: var(--size-12);
+}
+@media (width > 768px) {
+  section .wrapper {
+    padding-block: var(--size-20);
+  }
+}
+
+.small {
+  font-size: 0.5em;
+}
+
+.large {
+  font-size: 1.5em;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: 700;
+}
+
 :root {
   --size-1: 0.25rem;
   --size-2: 0.5rem;
@@ -151,6 +193,7 @@ html {
   --header-height: 80px;
   --background:#fafafa;
   --text:#050505;
+  --secondary: #e0e2da;
 }
 
 .container {
@@ -169,6 +212,7 @@ body {
   font-family: "Outfit", sans-serif;
   background-color: var(--background);
   color: var(--text);
+  scroll-padding-top: var(--header-height);
 }
 
 .nav-list {
@@ -223,9 +267,6 @@ body {
 }
 
 .hero .wrapper {
-  padding-block: 2rem;
-  border-bottom: 1px solid var(--text);
-  box-shadow: 0 0.3rem 0.25rem -0.25rem hsla(0, 0%, 0%, 0.4);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -340,5 +381,68 @@ body {
     translate: 0 0;
   }
 }
+/***** About *****/
+.about {
+  background-color: var(--secondary);
+}
+.about .container {
+  min-width: 100%;
+}
+@media (width > 1120px) {
+  .about .container {
+    min-width: auto;
+  }
+}
+.about .wrapper {
+  padding-block: 0;
+  display: grid;
+}
+@media (width > 768px) {
+  .about .wrapper {
+    padding-block: 0;
+    grid-template-columns: auto auto;
+    gap: var(--size-12);
+  }
+}
+.about-img {
+  aspect-ratio: 1/1;
+  max-height: 500px;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+@media (width > 768px) {
+  .about-img {
+    max-height: none;
+    width: auto;
+    height: 100%;
+  }
+}
+.about-content {
+  padding-block: var(--size-8);
+  padding-inline: var(--size-6);
+}
+@media (width > 768px) {
+  .about-content {
+    order: -1;
+    padding-block: var(--size-12);
+  }
+}
+@media (width > 1120px) {
+  .about-content {
+    padding-inline: 0;
+    font-size: var(--size-5);
+  }
+}
+.about-text {
+  margin-top: 1em;
+}
+@media (width > 768px) {
+  .about-text {
+    max-width: 45ch;
+  }
+}
+
+/***** End About *****/
 
 /*# sourceMappingURL=style.css.map */
