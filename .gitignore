@@ -1,0 +1,8 @@
+# VSCODE
+history.sqlite
+
+# SASS CACHES AND MAPS
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
