@@ -197,6 +197,7 @@ footer .wrapper {
   --secondary: #e0e2da;
 }
 
+/* Josh Javier @ joshjavier.com */
 main:not([data-no-js=true]) .load-on-scroll {
   opacity: 0;
   transform: translateY(var(--size-8));
@@ -748,5 +749,3 @@ body {
 }
 
 /***** End Footer *****/
-
-/*# sourceMappingURL=style.css.map */
