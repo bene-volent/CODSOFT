@@ -308,10 +308,10 @@ body {
   transform: scaleX(0);
   transition: transform 350ms ease;
 }
-.hero-cta:hover {
+.hero-cta:hover, .hero-cta:focus-visible {
   color: var(--background);
 }
-.hero-cta:hover::before {
+.hero-cta:hover::before, .hero-cta:focus-visible::before {
   transform: scaleX(1);
 }
 
@@ -463,7 +463,7 @@ body {
 }
 .skills-graph {
   display: grid;
-  gap: 1rem;
+  gap: var(--size-4);
   grid-auto-flow: row;
   grid-auto-rows: auto;
 }
@@ -500,15 +500,15 @@ body {
 .skills-items {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1rem;
-  font-size: 3rem;
+  gap: var(--size-3);
+  margin-top: var(--size-4);
+  font-size: var(--size-12);
   line-height: 1.2;
   opacity: 0.7;
 }
 @media (width > 768px) {
   .skills-items {
-    font-size: 4rem;
+    font-size: var(--size-16);
     line-height: 1.3;
   }
 }
@@ -518,10 +518,94 @@ body {
 
 /***** End Skills *****/
 /***** Projects *****/
+.projects {
+  background-color: var(--secondary);
+}
+.projects-subtitle {
+  max-width: 45ch;
+  font-size: 1.2em;
+  margin-bottom: var(--size-6);
+}
+.projects-list {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  margin-top: 4rem;
+  gap: 7.5vmax;
+}
+.projects-project {
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: 1fr;
+  gap: 5vh;
+  grid-auto-rows: auto;
+}
+@media (width > 768px) {
+  .projects-project {
+    grid-auto-flow: column;
+    grid-auto-rows: auto;
+    grid-auto-columns: 1fr;
+    gap: 5vw;
+  }
+}
+.projects-project-img {
+  border-radius: var(--size-2);
+  box-shadow: 5px 5px #b2b2b1, -5px -5px 5px rgba(158, 158, 158, 0.1019607843);
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.projects-project-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+@media (width > 1120px) {
+  .projects-project-content {
+    font-size: var(--size-5);
+  }
+}
+.projects-project-name {
+  font-size: clamp(1.5rem, 0.01rem + 4vw, 1.75rem);
+}
+.projects-project-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (width > 768px) {
+  .projects-project-links {
+    flex-direction: row;
+  }
+}
+.projects-project-links > * {
+  padding: 1rem 2rem;
+  font-weight: 700;
+  text-align: center;
+  border-radius: var(--size-1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+.projects-project-links > *:active {
+  translate: 0 3px;
+}
+.projects-project-live {
+  background-color: var(--text);
+  color: var(--background);
+}
+.projects-project-repo {
+  border: 1px solid var(--text);
+}
+
 /***** End Projects *****/
 /***** Resume *****/
 /***** End Resume *****/
 /***** Contact Me *****/
+.cta {
+  background-color: var(--secondary);
+}
+
 /***** End Contact Me *****/
 /***** Footer *****/
 /***** End Footer *****/
