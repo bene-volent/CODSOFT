@@ -146,7 +146,8 @@ html {
   }
 }
 
-section {
+section,
+footer {
   .wrapper {
     padding-block: var(--size-12);
 
@@ -215,6 +216,20 @@ section {
   --secondary: #e0e2da;
 }
 
+main:not([data-no-js="true"]) .load-on-scroll {
+  opacity: 0;
+  transform: translateY(var(--size-8));
+  transition-property: opacity, transform;
+  transition-duration: 300ms, 500ms;
+  transition-timing-function: ease-out, cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.25s;
+}
+
+main:not([data-no-js="true"]) .is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .container {
   --max-width: 1120px;
   width: min(calc(100% - 3rem), var(--max-width));
@@ -277,7 +292,7 @@ body {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 99;
+  z-index: 10;
 
   .wrapper {
     display: flex;
@@ -345,7 +360,8 @@ body {
       transform: scaleX(0);
       transition: transform 350ms ease;
     }
-    &:hover,&:focus-visible {
+    &:hover,
+    &:focus-visible {
       color: var(--background);
       &::before {
         transform: scaleX(1);
@@ -504,10 +520,13 @@ body {
   }
   &-graph {
     display: grid;
-    gap:var(--size-4);
+    gap: var(--size-4);
 
     grid-auto-flow: row;
     grid-auto-rows: auto;
+
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 
     &-note {
       opacity: 0.6;
@@ -539,7 +558,7 @@ body {
 
     transition: transform 500ms calc(var(--delay) * 100ms) ease;
 
-    .skills-graph.showed-on-scroll & {
+    .skills-graph.expand-on-scroll & {
       transform: scaleX(calc(var(--_percent) / 100));
     }
   }
@@ -549,7 +568,7 @@ body {
     flex-wrap: wrap;
     gap: var(--size-3);
 
-    margin-top:var(--size-4);
+    margin-top: var(--size-4);
 
     font-size: var(--size-12);
     line-height: 1.2;
@@ -557,7 +576,7 @@ body {
     // color: ;
     opacity: 0.7;
     @include mq() {
-      font-size:var(--size-16);
+      font-size: var(--size-16);
       line-height: 1.3;
     }
 
@@ -569,18 +588,17 @@ body {
 
 /***** End Skills *****/
 
-
 /***** Projects *****/
-.projects{
+.projects {
   background-color: var(--secondary);
 
-  &-subtitle{
+  &-subtitle {
     max-width: 45ch;
     font-size: 1.2em;
-    margin-bottom:var(--size-6)
+    margin-bottom: var(--size-6);
   }
 
-  &-list{
+  &-list {
     // List Defaults
     list-style: none;
     padding-left: 0;
@@ -590,64 +608,67 @@ body {
     margin-top: 4rem;
 
     gap: 7.5vmax;
-
   }
-  &-project{
+  &-project {
     @include even-column();
 
     grid-auto-rows: auto;
 
-    &-img{
-      border-radius:var(--size-2);
-      box-shadow: 5px 5px #b2b2b1, -5px -5px 5px #9e9e9e1a;
+    &-img {
+      border-radius: var(--size-2);
+      box-shadow:
+        5px 5px #b2b2b1,
+        -5px -5px 5px #9e9e9e1a;
 
       -o-object-fit: cover;
 
-         object-fit: cover;
+      object-fit: cover;
       height: 100%;
       width: 100%;
     }
 
-    &-content{
+    &-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 0.75rem;
 
-      @include mq(lg){
-        font-size: var(--size-5)
-      };
+      @include mq(lg) {
+        font-size: var(--size-5);
+      }
     }
 
-    &-name{
-      font-size: clamp(1.5rem,0.01rem + 4vw,1.75rem)
+    &-name {
+      font-size: clamp(1.5rem, 0.01rem + 4vw, 1.75rem);
     }
-    &-links{
+    &-links {
       display: flex;
       flex-direction: column;
       gap: 1rem;
 
-      @include mq(){
+      @include mq() {
         flex-direction: row;
       }
-      
-      > *{
+
+      > * {
         padding: 1rem 2rem;
         font-weight: 700;
         text-align: center;
         border-radius: var(--size-1);
-        box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
+        box-shadow:
+          0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -4px rgba(0, 0, 0, 0.1);
 
-        &:active{
+        &:active {
           translate: 0 3px;
         }
       }
     }
-    &-live{
+    &-live {
       background-color: var(--text);
       color: var(--background);
     }
-    &-repo{
+    &-repo {
       border: 1px solid var(--text);
     }
   }
@@ -655,21 +676,127 @@ body {
 
 /***** End Projects *****/
 
-
 /***** Resume *****/
+
+.resume {
+  @include mq(lg) {
+    font-size: var(--size-5);
+  }
+
+  .wrapper {
+  }
+  &-content {
+    @include even-column();
+    grid-auto-rows: auto;
+    align-items: center;
+  }
+  &-button {
+    display: inline-block;
+
+    margin-top: 1rem;
+    border-radius: var(--size-1);
+    padding: 1rem 2rem;
+    width: 100%;
+
+    font-weight: 700;
+    background-color: var(--text);
+    color: var(--background);
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+    text-align: center;
+
+    @include mq() {
+      width: auto;
+    }
+
+    &:active {
+      translate: 0 3px;
+    }
+  }
+  &-illustration {
+    height: 300px;
+    margin-inline: auto;
+
+    order: -1;
+
+    @include mq() {
+      order: 0;
+    }
+  }
+}
 
 /***** End Resume *****/
 
-
 /***** Contact Me *****/
-.cta{
+.cta {
   background-color: var(--secondary);
 
+  &-content {
+    @include even-column();
+    grid-auto-rows: auto;
+    align-items: center;
+
+    @include mq(lg) {
+      font-size: var(--size-5);
+    }
+  }
+  &-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    > * {
+      width: 100%;
+      padding: 1rem 2rem;
+      text-align: center;
+      color: var(--background);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--size-1);
+
+      box-shadow:
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+      gap: 1ch;
+
+      &:active {
+        translate: 0 3px;
+      }
+
+      .icon {
+        font-size: 2em;
+      }
+
+      @include mq() {
+        max-width: 400px;
+      }
+    }
+  }
+  &-linkedin {
+    background-color: #0a66c2;
+  }
+  &-mail {
+    background-color: #ea4335;
+  }
 }
 /***** End Contact Me *****/
 
-
-
 /***** Footer *****/
+.footer {
+  text-align: center;
 
+  .wrapper {
+    padding-block: var(--size-8);
+    @include mq() {
+      font-size: var(--size-5);
+      padding-block: var(--size-12);
+    }
+  }
+}
 /***** End Footer *****/

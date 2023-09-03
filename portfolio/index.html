@@ -7,13 +7,87 @@
   <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
   <title>Raghav | Frontend Developer</title>
 
+  
 
   <!-- External Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 
+<style>
+  .loading-screen{
+    --background: #fafafa;
+  --text: #050505;
+  --secondary: #e0e2da;
 
+    
+    position:fixed;
+    inset: 0;
+    background-color: var(--background);
+    color:var(--text);
+    z-index: 99;
+
+    animation: loading-screen 1s ease-in-out 3.5s   forwards;
+
+    /* border-bottom: 1px solid var(--text  ); */
+
+}
+.loading-screen > *{
+      position: absolute;
+      left:50%;
+      top:50%;
+      translate: -50% -50%;
+    }
+
+    .loading-line-container{
+      width: min(60%, 500px);
+      /* background-color: var(--secondary); */
+    }
+    .loading-line{
+      height:4px;
+      background-color: var(--text);
+      width:100%;
+      scale: 0 1;
+      transform-origin: left center;
+      border-radius: 9999px;
+
+      animation: loading-animation 2s 500ms ease forwards;
+    }
+    .line{
+      width: max-content;
+      font-size:clamp(1.5rem,0.01rem + 4vw,3rem);
+      overflow: hidden;
+      
+    }
+    .line-text{
+      display: inline-block;
+      width: max-content;
+      /* font-size: 3rem; */
+      translate: 0 2em;
+      animation: loading-text 500ms ease 2.5s   forwards;
+    }
+
+    @keyframes  loading-animation {
+      90%{
+        scale:1 1;
+        opacity: 1;
+      }
+      100%{
+        scale: 1 1;
+        opacity: 0;
+      }
+    }
+    @keyframes loading-text {
+      to{
+        translate: 0 0;
+      }
+    }
+    @keyframes loading-screen {
+      to{
+        translate: 0 -100%;
+      }
+    }
+</style>
 
   <link rel="stylesheet" href="./src/assets/css/style.css">
 
@@ -22,6 +96,14 @@
 </head>
 
 <body>
+
+  <div class="loading-screen">
+    <div class="loading-line-container">
+      <div class="loading-line"></div>
+    </div>
+    <p class="line"><span class="line-text">Welcome to my portfolio</span></p>
+  </div>
+
   <header class="header">
     <div class="container">
       <div class="wrapper">
@@ -40,7 +122,7 @@
       </div>
     </div>
   </header>
-  <main class="main">
+  <main class="main" data-no-js="true">
     <section class="hero">
       <div class="container">
         <div class="wrapper">
@@ -103,7 +185,7 @@
         <div class="wrapper">
           <h2 class="section-heading">Skills</h2>
           <div class="skills-content">
-            <div class="skills-graph [ show-on-scroll ]">
+            <div class="skills-graph [ load-on-scroll ]">
               <p class="skills-graph-note">~ Based on what I think should be 100%</p>
               <div class="skills-skill">
                 <p class="skills-label">
@@ -178,45 +260,54 @@
         <div class="wrapper">
           <h2 class="section-heading">Projects</h2>
           <p class="projects-subtitle">
-            These are some of the projects which show the extent of my skills. I have used various <span class="bold ">Frameworks, Tools and Technologies</span> to complete the projects
+            These are some of the projects which show the extent of my skills. I have used various <span class="bold ">Frameworks, Tools and Technologies</span> to complete these projects
           </p>
           <ul class="projects-list">
-            <li class="projects-project">
+            <li class="projects-project | load-on-scroll">
               <img src="./assets/img/projects/beneisadev.webp" alt="Bene's Portfolio" class="projects-project-img">
               <div class="projects-project-content">
                 <h3 class="projects-project-name">Bene's Portfolio</h3>
-                <p class="projects-project-desc">This is my actual Portfolio. It consists of a Home page, a Projects page and a Blogs page. Uses Server Side Rendering to create seamless transitions and maintain SEO.</p>
+                <p class="projects-project-desc">This is my actual Portfolio. It consists of a Home page, a Projects page and a Blogs page. Uses Server Side Rendering to create seamless transitions and maintain SEO. <span class="bold">Currently Incomplete</span></p>
                 <p class="projects-project-tools"><span class="bold">Tools: </span> Nuxtjs, SCSS, CMS</p>
-                <div class="projects-project-links"><a href="https://beneisadev.vercel.app" class="projects-project-live" target="_blank">Visit Website</a><a href="https://github.com/bene-volent/bene-portfolio" class="projects-project-repo" target="_blank">Visit Repo</a></div>
+                <div class="projects-project-links"><a role="button" href="https://beneisadev.vercel.app" class="projects-project-live" target="_blank">Visit Website</a><a role="button" href="https://github.com/bene-volent/bene-portfolio" class="projects-project-repo" target="_blank">Visit Repo</a></div>
               </div>
             </li>
-            <li class="projects-project">
+            <li class="projects-project | load-on-scroll">
               <img src="./assets/img/projects/frontend-mentor-bene.webp" alt="Frontend Mentor Projects" class="projects-project-img">
               <div class="projects-project-content">
                 <h3 class="projects-project-name">Frontend Mentor Projects</h3>
                 <p class="projects-project-desc">This website serves as a catelog of all my completed solution / challenges. The purpose of this project is to provide a simpler way to showcase my solutions.</p>
                 <p class="projects-project-tools"><span class="bold">Tools: </span> Vue 3, SCSS, CMS using JSON</p>
-                <div class="projects-project-links"><a href="https://frontend-mentor-bene.vercel.app" class="projects-project-live" target="_blank">Visit Website</a><a href="https://beneisadev.vercel.app/works/frontend-mentor-projects" class="projects-project-repo" target="_blank">Visit Repo</a></div>
+                <div class="projects-project-links"><a role="button" href="https://frontend-mentor-bene.vercel.app" class="projects-project-live" target="_blank">Visit Website</a><a role="button" href="https://beneisadev.vercel.app/works/frontend-mentor-projects" class="projects-project-repo" target="_blank">Visit Repo</a></div>
               </div>
             </li>
-            <li class="projects-project">
+            <li class="projects-project | load-on-scroll">
               <img src="./assets/img/projects/odin-projects-list.webp" alt="" class="projects-project-img">
               <div class="projects-project-content">
                 <h3 class="projects-project-name">The Odin Project List</h3>
                 <p class="projects-project-desc">A website to showcase all the projects created for The Odin Project. The parent project uses no framework, plain'ol HTML, CSS and JS</p>
                 <p class="projects-project-tools"><span class="bold">Tools: </span> HTML, CSS, JS</p>
-                <div class="projects-project-links"><a href="https://odinprojects-bene.vercel.app/" class="projects-project-live" target="_blank">Visit Website</a><a href="https://github.com/bene-volent/odin-project-repo/" class="projects-project-repo" target="_blank">Visit Repo</a></div>
+                <div class="projects-project-links"><a role="button" href="https://odinprojects-bene.vercel.app/" class="projects-project-live" target="_blank">Visit Website</a><a role="button" href="https://github.com/bene-volent/odin-project-repo/" class="projects-project-repo" target="_blank">Visit Repo</a></div>
               </div>
             </li>
           </ul>
         </div>
       </div>
     </section>
-    <section class="resume"> 
-      <div class="container">
+    <section class="resume" id="resume"> 
+      <div class="container container--small">
         <div class="wrapper">
           <h2 class="section-heading">Resume</h2>
-          <a href="https://drive.google.com/file/d/14z-Jslby2mpryyX44bTatu5lV-V9Jm5D/view?usp=sharing" target=" ">View Resume</a>
+          <div class="resume-content">
+            <div class="resume-text">
+              <p class="resume-subtitle">You can download my resume by clicking on the button below.</p>
+              <a role="button" class="resume-button" href="https://drive.google.com/file/d/1uKJa4XTsGkYTmUyxY-8JY24rKstd4VQA/view?usp=sharing" target=" ">View Resume</a>
+            </div>
+            <div class="resume-illustration">
+              <img class="resume-illustration" src="./assets/img/resume-illustration.webp" alt="Resume Illustration">
+            </div>
+          </div>
+          
         </div>
       </div>
     </section>
@@ -224,13 +315,26 @@
       <div class="container">
         <div class="wrapper">
           <h2 class="section-heading">Contact Me</h2>
+          <div class="cta-content">
+            <p class="cta-text">I am looking for Internship opportunites and Projects as Web Developer or Frontend Developer which can help me grow further. If you find anything interesting, you can contact me through my LinkedIn or email.</p>
+            <div class="cta-buttons">
+              <a href="https://linkedin.com/in/raghv-r" target="_blank" class="cta-linkedin">Connect through  <iconify-icon class="icon" icon="mdi:linkedin"></iconify-icon></a>
+              <a href="mailto:raghvme1@gmail.com" target="_blank" class="cta-mail">Connect through <iconify-icon class="icon" icon="mdi:gmail"></iconify-icon></a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
   <footer class="footer">
 
+    <div class="container">
+      <div class="wrapper">&copy; 2023 Raghav / Bene-volent</div>
+    </div>
   </footer>
+  <script>
+    document.querySelector("main").dataset.noJs=false;
+  </script>
   <script src="./src/scripts/intersection.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
 </body>

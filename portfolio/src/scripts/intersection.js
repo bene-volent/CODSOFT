@@ -1,4 +1,4 @@
-const observables = document.querySelectorAll(".show-on-scroll")
+const observables = document.querySelectorAll(".load-on-scroll")
 
 const ObserverOptions = {
     root:null,
@@ -13,7 +13,11 @@ const ObserverCallback = (entries,observer) =>{
         
             const el = entry.target
             // console.log(el)
-        el.classList.add("showed-on-scroll")
+        if (el.classList.contains("skills-graph")){
+            el.classList.add("expand-on-scroll")
+        }
+        else
+        el.classList.add("is-visible")
         observer.unobserve(el)
         
     })
