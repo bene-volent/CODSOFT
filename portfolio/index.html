@@ -27,7 +27,7 @@
     color:var(--text);
     z-index: 99;
 
-    animation: loading-screen 1s ease-in-out 3.5s   forwards;
+    animation: loading-screen 1s ease-in-out 4s   forwards;
 
     /* border-bottom: 1px solid var(--text  ); */
 
@@ -54,7 +54,7 @@
       animation: loading-animation 2s 500ms ease forwards;
     }
     .line{
-      width: max-content;
+      /* width: max-content; */
       font-size:clamp(1.5rem,0.01rem + 4vw,3rem);
       overflow: hidden;
       
@@ -63,7 +63,7 @@
       display: inline-block;
       width: max-content;
       /* font-size: 3rem; */
-      translate: 0 2em;
+      translate: 0 3em;
       animation: loading-text 500ms ease 2.5s   forwards;
     }
 
@@ -101,7 +101,10 @@
     <div class="loading-line-container">
       <div class="loading-line"></div>
     </div>
-    <p class="line"><span class="line-text">Welcome to my portfolio</span></p>
+    <d class="line">
+      <p class="line-text">Welcome to my portfolio</p>
+      <p class="line-text">Minimal and concise</p>
+    </d>
   </div>
 
   <header class="header">
