@@ -190,8 +190,8 @@ section .wrapper {
   --size-35: 8.75rem;
   --size-36: 9rem;
   --header-height: 80px;
-  --background:#fafafa;
-  --text:#050505;
+  --background: #fafafa;
+  --text: #050505;
   --secondary: #e0e2da;
 }
 
@@ -445,5 +445,85 @@ body {
 }
 
 /***** End About *****/
+/***** Skills *****/
+.skills-content {
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: 1fr;
+  gap: 5vh;
+  grid-auto-rows: auto;
+}
+@media (width > 768px) {
+  .skills-content {
+    grid-auto-flow: column;
+    grid-auto-rows: auto;
+    grid-auto-columns: 1fr;
+    gap: 5vw;
+  }
+}
+.skills-graph {
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: row;
+  grid-auto-rows: auto;
+}
+.skills-graph-note {
+  opacity: 0.6;
+  font-size: 1.25em;
+}
+.skills-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.skills-bar-container {
+  margin-top: var(--size-1);
+  height: var(--size-4);
+  border-radius: 9999px;
+  width: 100%;
+  background-color: hsl(0, 0%, 85%);
+}
+.skills-bar {
+  height: 100%;
+  width: 100%;
+  -webkit-animation: 0;
+  animation: 0;
+  border-radius: 9999px;
+  background-color: hsl(31, 100%, 59%);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 500ms calc(var(--delay) * 100ms) ease;
+}
+.skills-graph.showed-on-scroll .skills-bar {
+  transform: scaleX(calc(var(--_percent) / 100));
+}
+.skills-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  font-size: 3rem;
+  line-height: 1.2;
+  opacity: 0.7;
+}
+@media (width > 768px) {
+  .skills-items {
+    font-size: 4rem;
+    line-height: 1.3;
+  }
+}
+.skills-items-heading {
+  font-size: 1.25em;
+}
+
+/***** End Skills *****/
+/***** Projects *****/
+/***** End Projects *****/
+/***** Resume *****/
+/***** End Resume *****/
+/***** Contact Me *****/
+/***** End Contact Me *****/
+/***** Footer *****/
+/***** End Footer *****/
 
 /*# sourceMappingURL=style.css.map */
