@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bene's Calculator</title>
+    <link rel="stylesheet" href="./src/stylesheet/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header class="calc-header">
+            <h1 class="calc-heading">Bene's Calculator</h1>
+            <button class="calc-open-info" onclick="document.querySelector('.keyboard-info').showModal()" type="button"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8s8-3.59 8-8s-3.59-8-8-8zm1 13h-2v-6h2v6zm0-8h-2V7h2v2z" opacity=".3"/><path fill="currentColor" d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8z"/></svg></button>
+        </header>
+        <main class="calc-main">
+            <div class="calc-display"></div>
+            <div class="calc-buttons">
+                <div class="calc-numbers-grid">
+                    <button type="button" class="calc-btn number" data-value="7">7</button>
+                    <button type="button" class="calc-btn number" data-value="8">8</button>
+                    <button type="button" class="calc-btn number" data-value="9">9</button>
+                    <button type="button" class="calc-btn number" data-value="4">4</button>
+                    <button type="button" class="calc-btn number" data-value="5">5</button>
+                    <button type="button" class="calc-btn number" data-value="6">6</button>
+                    <button type="button" class="calc-btn number" data-value="1">1</button>
+                    <button type="button" class="calc-btn number" data-value="2">2</button>
+                    <button type="button" class="calc-btn number" data-value="3">3</button>
+                    <button type="button" class="calc-btn decimal"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 10a2 2 0 0 0-2 2a2 2 0 0 0 2 2c1.11 0 2-.89 2-2a2 2 0 0 0-2-2Z"/></svg></button>
+                    <button type="button" class="calc-btn number" data-value="0">0</button>
+                    <button type="button" class="calc-btn changeSign"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="1em" height="1em" viewBox="0 0 256 256"><path fill="currentColor" d="m208.49 64.49l-144 144a12 12 0 0 1-17-17l144-144a12 12 0 0 1 17 17ZM60 112a12 12 0 0 0 24 0V84h28a12 12 0 0 0 0-24H84V32a12 12 0 0 0-24 0v28H32a12 12 0 0 0 0 24h28Zm164 60h-80a12 12 0 0 0 0 24h80a12 12 0 0 0 0-24Z"/></svg></button>
+                </div>
+                <button type="button" class="calc-btn allClear"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="1em" height="1em"  viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.413-.588T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.588 1.413T17 21H7Zm2-4h2V8H9v9Zm4 0h2V8h-2v9Z"/></svg></button>
+                <button type="button" class="calc-btn clearEvent"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M9 19q-.5 0-.938-.225t-.712-.625L3 12l4.35-6.15q.275-.4.713-.625T9 5h10q.825 0 1.413.588T21 7v10q0 .825-.588 1.413T19 19H9Zm10-2V7v10ZM9 17h10V7H9l-3.55 5L9 17Zm2.4-1l2.6-2.6l2.6 2.6l1.4-1.4l-2.6-2.6L18 9.4L16.6 8L14 10.6L11.4 8L10 9.4l2.6 2.6l-2.6 2.6l1.4 1.4Z"/></svg></button>
+                <button type="button" class="calc-btn operator" data-value="/"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="1em" height="1em"  viewBox="0 0 24 24"><path fill="currentColor" d="M5 11h14v2H5zm7.002-7a2 2 0 1 0-.004 4a2 2 0 0 0 .004-4zm0 12a2 2 0 1 0-.004 4a2 2 0 0 0 .004-4z"/></svg></button>
+                <button type="button" class="calc-btn operator" data-value="*"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="1em" height="1em"  viewBox="0 0 24 24"><path fill="currentColor" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"/></svg></button>
+                <button type="button" class="calc-btn evaluate"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="1em" height="1em"  viewBox="0 0 24 24"><path fill="currentColor" d="M4 17v-3h16v3H4Zm0-7V7h16v3H4Z"/></svg></button>
+                <button type="button" class="calc-btn operator" data-value="-"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="1em" height="1em"  viewBox="0 0 24 24"><path fill="currentColor" d="M19 12.998H5v-2h14z"/></svg></button>
+                <button type="button" class="calc-btn operator" data-value="+"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z"/></svg></button>
+            </div>
+        </main>
+        <dialog class="keyboard-info">
+            <header>
+                <h2>Keyboard Controls</h2>
+                <button type="button" onclick="document.querySelector('.keyboard-info').close()"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6L6.4 19Z"/></svg></button>
+            </header>
+            <ul>
+                <li>Numpad 0 - 9, . : 0 - 9, .</li>
+                <li>Numpad +,-,*,/ : +,-,*,/</li>
+                <li>Backspace : Clear Entry</li>
+                <li>Delete : All Clear</li>
+                <li>Shift : Change Sign</li>
+                <li>Enter : Equal</li>
+            </ul>
+        </dialog>
+    </div>
+    <script type="module" src="./src/scripts/main.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    </script>
+</body>
+
+</html>
+<!-- 
+-->
