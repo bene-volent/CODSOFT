@@ -266,6 +266,9 @@ body {
   font-weight: bold;
   box-shadow: inset 0px -8px 0 hsla(0, 0%, 0%, 0.4);
 }
+.calc-btn:focus-visible {
+  outline: 3px solid black;
+}
 .calc-btn:active {
   box-shadow: inset 0px 4px 0 hsla(0, 0%, 0%, 0.4);
   translate: 0 2px;

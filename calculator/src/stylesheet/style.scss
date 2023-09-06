@@ -297,6 +297,10 @@ body {
 
     box-shadow: inset 0px -8px 0 hsl(0 0% 0% / 0.4);
 
+    &:focus-visible{
+      outline: 3px solid black;
+    }
+
 &:active{
   box-shadow: inset 0px 4px 0 hsl(0 0% 0% / 0.4);
   translate: 0 2px;
