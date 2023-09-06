@@ -39,7 +39,7 @@ class Calculator {
         if (this.state === 0) {
 
             if (val === 0 && this.memory.firstNumber === "0") return this
-            if (this.memory.firstNumber.length > 9) return this
+            if (this.memory.firstNumber.length > this.maxSize) return this
 
             if (this.memory.firstNumber === "0")
                 this.memory.firstNumber = val
@@ -51,7 +51,7 @@ class Calculator {
         else {
 
             if (val === 0 && this.memory.secondNumber === "0") return this
-            if (this.memory.secondNumber.length > 9) return this
+            if (this.memory.secondNumber.length > this.maxSize) return this
 
             if (this.memory.secondNumber === "0")
                 this.memory.secondNumber = val
