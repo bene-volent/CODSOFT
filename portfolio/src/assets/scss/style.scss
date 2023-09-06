@@ -417,8 +417,8 @@ body {
 }
 .word {
   translate: 0 125%;
-  -webkit-animation: name-popup 500ms calc(5s + var(--delay) * 100ms) cubic-bezier(0.71, 0.68, 0.57, 1) forwards;
-  animation: name-popup 500ms calc(5s + var(--delay) * 100ms) cubic-bezier(0.71, 0.68, 0.57, 1) forwards;
+  -webkit-animation: name-popup 500ms calc(4.5s + var(--delay) * 100ms) cubic-bezier(0.71, 0.68, 0.57, 1) forwards;
+  animation: name-popup 500ms calc(4.5s + var(--delay) * 100ms) cubic-bezier(0.71, 0.68, 0.57, 1) forwards;
 }
 .word-container:nth-child(n + 2) {
   margin-left: 2ch;
